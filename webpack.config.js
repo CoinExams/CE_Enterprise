@@ -1,8 +1,6 @@
-const
-    path = require(`path`),
-    webpack = require(`webpack`),
-    { CleanWebpackPlugin } = require(`clean-webpack-plugin`),
-    TerserPlugin = require(`terser-webpack-plugin`);
+import * as path from 'path';
+import * as webpack from 'webpack';
+import TerserPlugin from 'terser-webpack-plugin';
 
 // Common configuration
 const commonConfig = {
