@@ -18,9 +18,11 @@ import {
     coinSetsNew,
     coinSetsUpdate,
     coinSetsDelete,
+    coinSetBackTest,
 } from "./coinsets";
 import {
     APISpecs,
+    CoinSetBackTestResult,
     CoinsetDelete,
     CoinsetError,
     CoinsetId,
@@ -37,6 +39,8 @@ import {
     PortfolioExchAPIReturn,
     PortfolioId,
     PortfolioUpdate,
+    TradeStartEnd,
+    TradeStartEndObj,
 } from "./types";
 import { EVMAddress, PayTxsData } from "merchantslate";
 import {
@@ -55,7 +59,7 @@ export {
     accountPayments,
     APISpecs,
     errorMsgs,
-    
+
     // portfolios
     portfolioTrades,
     ExchData,
@@ -92,4 +96,10 @@ export {
     coinSetsDelete,
     CoinsetDelete,
     CoinsetError,
+
+    // coinsets back-test
+    TradeStartEnd,
+    TradeStartEndObj,
+    CoinSetBackTestResult,
+    coinSetBackTest,
 };

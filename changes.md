@@ -1,6 +1,9 @@
 
 ## CoinExams Enterprise - Change Log
 
+### 22 June 2025 
+`coinSetBackTest` added to return coinset backtest
+
 ### 5 May 2025 
 `payPortfolioValid` updated to return all payment data
 

@@ -27,6 +27,7 @@ interface ErrorCodes {
     max_port_reached: string,
     port_delete_failed: string,
     last_port_error: string,
+    coinset_backtest_unavailable: string
 };
 
 type ErrorCodeString = keyof ErrorCodes;
@@ -256,6 +257,32 @@ interface CoinsetId {
 /** Coinset Error */
 type CoinsetError<sy extends string> = `${sy} symbol_invalid`;
 
+/** trade start and end */
+interface TradeStartEnd {
+    start: number,
+    end: number
+}
+
+/** trade start and end object */
+interface TradeStartEndObj {
+    [sy: string]: TradeStartEnd
+}
+
+interface NumberObj {
+    [key: string]: number
+};
+
+/** Chart BackTest Result */
+interface CoinSetBackTestResult {
+    pointsCount: number;
+    historyPoints: number[];
+    gainPoints: number[];
+    totalChangesObj: TradeStartEndObj;
+    endQtyRef: NumberObj;
+    gainRate: number;
+    gainValue: number;
+}
+
 export {
     // configuration
     CEConfig,
@@ -291,4 +318,9 @@ export {
     CoinsetsData,
     CoinsetId,
     CoinsetError,
+
+    // coinsets back-test
+    TradeStartEnd,
+    TradeStartEndObj,
+    CoinSetBackTestResult,
 };

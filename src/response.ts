@@ -19,6 +19,7 @@ const
         max_port_reached: `Portfolios maximum number reached. Contact us to increase your API limit.`,
         port_delete_failed: `Portfolio delete failed. Please try again.`,
         last_port_error: `Account needs at least one portfolio`,
+        coinset_backtest_unavailable: `Coinset backtest not available`,
     },
     eRes = (e?: ErrorCodeString): ErrorResponse => {
         e = e || `unknown`;

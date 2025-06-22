@@ -2,6 +2,7 @@ import {
     requestFun,
     invalidStr,
     logErr,
+    fileData,
 } from "./config";
 import { eRes, fullRes } from "./response";
 import {
@@ -12,6 +13,7 @@ import {
     ExchIds,
     CoinsetId,
     ResultPromise,
+    CoinSetBackTestResult,
 } from "./types";
 
 const
@@ -150,6 +152,28 @@ const
             logErr(e, endPoint);
             return eRes();
         };
+    },
+    /** Coin Set BackTest */
+    coinSetBackTest = async (
+        coinSet: string[]
+    ): ResultPromise<CoinSetBackTestResult> => {
+        try {
+            const
+                coinsetStr = coinSet?.sort()?.join(`,`)?.toUpperCase(),
+                result: CoinSetBackTestResult = await fileData({
+                    folderPath: `coinsets`,
+                    fileName: coinsetStr
+                }),
+                res = result?.gainRate ? {
+                    success: true,
+                } : {
+                    e: `coinset_backtest_unavailable`,
+                };
+            return fullRes(res, result);
+        } catch (e) {
+            logErr(e, `coinsets/backtest`);
+            return eRes();
+        };
     };
 
 export {
@@ -158,4 +182,5 @@ export {
     coinSetsNew,
     coinSetsUpdate,
     coinSetsDelete,
+    coinSetBackTest,
 };

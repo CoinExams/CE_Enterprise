@@ -55,7 +55,7 @@ Returns `portId` as confirmation
 
 ### Portfolio Pay Txs
 Get payment transactions
-```
+```typescript
 config({
     payId, // Your Pay Id number as string
     payChain, // Your Pay Chain, e.g. `BSC`
@@ -71,7 +71,7 @@ const
 
 ### Portfolio Payment
 Optional: After user signs and sends payTxs, validate payment using user wallet address
-```
+```typescript
 interface Payment {
     /** Unique identifier for the payment transaction */
     id: string;
@@ -100,7 +100,7 @@ const
 ```
 
 After payment is done you can mark payment as done
-```
+```typescript
 config({ apiKey, hmacKey }); // required if not previously set
 
 const 
@@ -128,3 +128,8 @@ Error return `{ e: 'symbols_insufficient' | '${symbol} symbol_invalid' }`
 ### Coinset Delete
 Delete an existing coin set using coin set ID `coinSetsDelete({ exchId, coinSetId })`
 Returns `coinSetId` as confirmation
+
+### Coinset Backtest
+Backtest an existing coin set using coin set array `coinSetBackTest(coinSet)`
+Returns `CoinSetBackTestResult` data
+Error return `{e: 'coinset_backtest_unavailable' }`

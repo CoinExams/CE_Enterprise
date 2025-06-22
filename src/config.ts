@@ -101,7 +101,7 @@ const
                         })
                     }
                 ),
-                result = await res.json();
+                result = await res?.json();
 
             // log request error
             if (
@@ -113,6 +113,26 @@ const
             };
 
             // return results
+            return result;
+        } catch (e) {
+            logErr(e);
+            return
+        };
+    },
+    /** Data URL */
+    dataURL = `https://srv.coinexams.com/`,
+    /** Data Request Function */
+    fileData = async ({
+        folderPath,
+        fileName,
+    }: {
+        folderPath: string,
+        fileName: string,
+    }) => {
+        try {
+            const
+                res = await fetch(`${dataURL}${folderPath}/${fileName}.json`),
+                result = await res?.json();
             return result;
         } catch (e) {
             logErr(e);
@@ -143,6 +163,7 @@ export {
     logErr,
     invalidStr,
     requestFun,
+    fileData,
     accountInfo,
     accountPayments,
 }
