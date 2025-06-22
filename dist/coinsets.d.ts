@@ -1,4 +1,4 @@
-import { CoinsetDelete, CoinsetsData, CoinsetUpdate, CoinsetNew, ExchIds, ResultPromise } from "./types";
+import { CoinsetDelete, CoinsetsData, CoinsetUpdate, CoinsetNew, ExchIds, ResultPromise, CoinSetBackTestResult } from "./types";
 declare const 
 /**
  * Coin Sets :
@@ -24,5 +24,7 @@ coinSetsUpdate: ({ exchId, coinSetId, coinSet, }: CoinsetUpdate) => ResultPromis
 * Coin Sets Delete :
 * Delete an existing coin set using coin set ID
 * */
-coinSetsDelete: ({ exchId, coinSetId, }: CoinsetDelete) => ResultPromise<string>;
-export { coinSetsAll, coinSetsOptions, coinSetsNew, coinSetsUpdate, coinSetsDelete, };
+coinSetsDelete: ({ exchId, coinSetId, }: CoinsetDelete) => ResultPromise<string>, 
+/** Coin Set BackTest */
+coinSetBackTest: (coinSet: string[]) => ResultPromise<CoinSetBackTestResult>;
+export { coinSetsAll, coinSetsOptions, coinSetsNew, coinSetsUpdate, coinSetsDelete, coinSetBackTest, };

@@ -25,6 +25,7 @@ interface ErrorCodes {
     max_port_reached: string;
     port_delete_failed: string;
     last_port_error: string;
+    coinset_backtest_unavailable: string;
 }
 type ErrorCodeString = keyof ErrorCodes;
 interface ErrorResponse {
@@ -225,4 +226,26 @@ interface CoinsetId {
 }
 /** Coinset Error */
 type CoinsetError<sy extends string> = `${sy} symbol_invalid`;
-export { CEConfig, ErrorCodes, ErrorCodeString, ErrorResponse, SuccessResponse, ResultPromise, ConfigSDK, APISpecs, ClientPayments, ExchIds, ExchData, ExchDataAll, ExchangeHoldings, PortSettings, PortfolioId, PortfolioUpdate, PortSettingsAll, PortSettingsAllString, PortfolioExchAPI, PortfolioExchAPIReturn, CoinsetNew, CoinsetDelete, CoinsetUpdate, CoinsetObj, CoinsetsData, CoinsetId, CoinsetError, };
+/** trade start and end */
+interface TradeStartEnd {
+    start: number;
+    end: number;
+}
+/** trade start and end object */
+interface TradeStartEndObj {
+    [sy: string]: TradeStartEnd;
+}
+interface NumberObj {
+    [key: string]: number;
+}
+/** Chart BackTest Result */
+interface CoinSetBackTestResult {
+    pointsCount: number;
+    historyPoints: number[];
+    gainPoints: number[];
+    totalChangesObj: TradeStartEndObj;
+    endQtyRef: NumberObj;
+    gainRate: number;
+    gainValue: number;
+}
+export { CEConfig, ErrorCodes, ErrorCodeString, ErrorResponse, SuccessResponse, ResultPromise, ConfigSDK, APISpecs, ClientPayments, ExchIds, ExchData, ExchDataAll, ExchangeHoldings, PortSettings, PortfolioId, PortfolioUpdate, PortSettingsAll, PortSettingsAllString, PortfolioExchAPI, PortfolioExchAPIReturn, CoinsetNew, CoinsetDelete, CoinsetUpdate, CoinsetObj, CoinsetsData, CoinsetId, CoinsetError, TradeStartEnd, TradeStartEndObj, CoinSetBackTestResult, };

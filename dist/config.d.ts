@@ -10,8 +10,13 @@ invalidStr: (params: (string | undefined)[]) => boolean,
 logErr: (e: any, endPoint?: string) => void, 
 /** Main Request Function */
 requestFun: (endPoint: string, reqParm?: any) => Promise<any>, 
+/** Data Request Function */
+fileData: ({ folderPath, fileName, }: {
+    folderPath: string;
+    fileName: string;
+}) => Promise<any>, 
 /** API data */
 accountInfo: () => ResultPromise<APISpecs>, 
 /** API payments list */
 accountPayments: () => ResultPromise<ClientPayments[]>;
-export { getConfig, config, logErr, invalidStr, requestFun, accountInfo, accountPayments, };
+export { getConfig, config, logErr, invalidStr, requestFun, fileData, accountInfo, accountPayments, };
