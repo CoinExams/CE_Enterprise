@@ -1,10 +1,10 @@
-import { CoinsetDelete, CoinsetsData, CoinsetUpdate, CoinsetNew, ExchIds, ResultPromise, CoinSetBackTestResult, CoinSetBackTestObj } from "./types";
+import { CoinsetDelete, CoinsetUpdate, CoinsetNew, ExchIds, ResultPromise, CoinSetBackTestResult, CoinSetBackTestObj, CoinsetObj } from "./types";
 declare const 
 /**
  * Coin Sets :
  * All coin sets created
  * */
-coinSetsAll: (exchId?: ExchIds) => ResultPromise<CoinsetsData>, 
+coinSetsAll: (exchId?: ExchIds) => ResultPromise<CoinsetObj>, 
 /**
  * Coin Sets Options :
  * Get a list of all possible token symbols

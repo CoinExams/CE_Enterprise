@@ -7,7 +7,6 @@ import {
 import { eRes, fullRes } from "./response";
 import {
     CoinsetDelete,
-    CoinsetsData,
     CoinsetUpdate,
     CoinsetNew,
     ExchIds,
@@ -15,6 +14,7 @@ import {
     ResultPromise,
     CoinSetBackTestResult,
     CoinSetBackTestObj,
+    CoinsetObj,
 } from "./types";
 
 const
@@ -26,7 +26,7 @@ const
     coinSetsAll = async (
         /** exchange Id */
         exchId?: ExchIds
-    ): ResultPromise<CoinsetsData> => {
+    ): ResultPromise<CoinsetObj> => {
         const endPoint = `coinsets/all`;
         try {
             const res = await requestFun(
@@ -191,12 +191,12 @@ const
             if (res?.success) {
                 const
                     allBackTests: ResultPromise<CoinSetBackTestResult>[] = [],
-                    data = res.data[exchId],
-                    idsArray = Object.keys(data);
+                    coinSets = res.data || {},
+                    idsArray = Object.keys(coinSets);
                 for (let i = 0; i < idsArray.length; i++) {
                     const
                         coinSetId = idsArray[i],
-                        list = data[coinSetId];
+                        list = coinSets[coinSetId];
                     allBackTests.push(coinSetBackTest(list));
                 };
                 const allBackTestsResults = await Promise.all(allBackTests);
@@ -204,7 +204,7 @@ const
                     const
                         coinSetId = idsArray[i],
                         result = allBackTestsResults[i],
-                        list = data[coinSetId];
+                        list = coinSets[coinSetId];
                     backTestsObj[coinSetId] = {
                         list,
                         backtest: result?.success ? result?.data : result?.e
