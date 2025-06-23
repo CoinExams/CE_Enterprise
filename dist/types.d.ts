@@ -240,12 +240,19 @@ interface NumberObj {
 }
 /** Chart BackTest Result */
 interface CoinSetBackTestResult {
+    /** Chart X-axis points count */
     pointsCount: number;
+    /** Total Historical Value */
     historyPoints: number[];
+    /** Total Traded Value */
     gainPoints: number[];
+    /** Total Amounts Start/End */
     totalChangesObj: TradeStartEndObj;
+    /** Total Amounts End */
     endQtyRef: NumberObj;
+    /** Total Gain Percentage */
     gainRate: number;
+    /** Total Gain Value */
     gainValue: number;
 }
 export { CEConfig, ErrorCodes, ErrorCodeString, ErrorResponse, SuccessResponse, ResultPromise, ConfigSDK, APISpecs, ClientPayments, ExchIds, ExchData, ExchDataAll, ExchangeHoldings, PortSettings, PortfolioId, PortfolioUpdate, PortSettingsAll, PortSettingsAllString, PortfolioExchAPI, PortfolioExchAPIReturn, CoinsetNew, CoinsetDelete, CoinsetUpdate, CoinsetObj, CoinsetsData, CoinsetId, CoinsetError, TradeStartEnd, TradeStartEndObj, CoinSetBackTestResult, };

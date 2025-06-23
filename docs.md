@@ -10,11 +10,11 @@
 * [5 April 2025 - ExchIds type updated](changes.md#5-april-2025)
 
 ### Base URL
-```
+```typescript
 const baseURL = `https://api.coinexams.com/v1/`;
 ```
 ### Request Signed
-```
+```typescript
 import { createHmac } from "node:crypto";
 import fetch from "node-fetch";
 
@@ -57,11 +57,11 @@ const
 
 ## Data Types
 ### Exchange Ids
-```
+```typescript
 type exchIds = `binance`
 ```
 ### Portfolio Settings
-```
+```typescript
 interface portSettings {
 	/** 1 trade on | 0 trade off */
 	rb?: 1 | 0,
@@ -89,7 +89,7 @@ interface portSettings {
 }
 ```
 ### Exchange Data
-```
+```typescript
 interface ExchData {
     /** holdings on exchanges */
     holdings: {
@@ -116,7 +116,7 @@ interface ExchData {
 ```
 
 ### Payment Required EVM Transactions
-```
+```typescript
 interface PayTxsData {
 	/** Payment Chain Id */
 	chainId: string;
@@ -147,7 +147,7 @@ Manage all portfolios created using API in your managing account
 Latest settings for all portfolios
 
 endPoint `portfolios/all`
-```
+```typescript
 body: {
 	/** Portfolio Id String */
 	portId?: string
@@ -164,7 +164,7 @@ response: {
 Latest trades for all portfolios
 
 endPoint `portfolios/trades`
-```
+```typescript
 body: {
 	/** Portfolio Id String */
 	portId?: string
@@ -184,7 +184,7 @@ Note: for `access expired` please contact support to renew API access
 Create a new portfolio and get portfolio ID
 
 endPoint `portfolios/add`
-```
+```typescript
 body: {
 	/** Portfolio Settings Stringified */
 	settings?: JSON.stringify(portSettings),
@@ -200,7 +200,7 @@ response: {
 Update an existing portfolio using portfolio ID
 
 endPoint `portfolios/update`
-```
+```typescript
 body: {
 	/** Portfolio Id String */
 	portId: string,
@@ -219,7 +219,7 @@ response: {
 Portfolio subscription payment required transaction data
 
 endPoint `portfolios/paytxs`
-```
+```typescript
 body: {
 	/** Quantity (1 == One Month Validity) */
 	quantity?: string
@@ -235,7 +235,7 @@ response: {
 Pay portfolio subscription and extend validity
 
 endPoint `portfolios/pay`
-```
+```typescript
 body: {
 	/** Paying Wallet */
 	payingWallet: string,
@@ -251,7 +251,7 @@ response: {
 Add or update exchange API keys for a given exchange
 
 endPoint `portfolios/api`
-```
+```typescript
 body: {
 	/** Portfolio Id String */
 	portId: string,
@@ -284,7 +284,7 @@ error: { e: `api_renew` | `api_invalid` }
 Delete an existing portfolio using portfolio ID
 
 endPoint `portfolios/delete`
-```
+```typescript
 body: {
 	/** Portfolio Id String */
 	portId: string,
@@ -300,7 +300,7 @@ response: {
 All coin sets created
 
 endPoint `coinsets/all`
-```
+```typescript
 body: {
 	/** exchange Id */
 	exchId: exchIds
@@ -317,7 +317,7 @@ response: {
 Get a list of all possible token symbols
 
 endPoint `coinsets/options`
-```
+```typescript
 body: {
 	/** exchange Id */
 	exchId: exchIds
@@ -332,7 +332,7 @@ response: {
 Create a new coin set and get coin set ID
 
 endPoint `coinsets/add`
-```
+```typescript
 body: {
 	/** exchange Id */
 	exchId: exchIds,
@@ -353,7 +353,7 @@ error: { e: `symbols_insufficient` | `${symbol} symbol_invalid` }
 Update an existing coin set using coin set ID
 
 endPoint `coinsets/update`
-```
+```typescript
 body: {
 	/** exchange Id */
 	exchId: exchIds,
@@ -377,7 +377,7 @@ error: { e: `symbols_insufficient` | `${symbol} symbol_invalid` }
 Delete an existing coin set using coin set ID
 
 endPoint `coinsets/delete`
-```
+```typescript
 body: {
 	/** exchange Id */
 	exchId: exchIds,
@@ -390,4 +390,34 @@ response: {
 	/** Coin Set Id String */
 	coinSetId: string,
 }
+```
+
+### Coin Set Delete
+Backtest an existing coin set using coin set array
+
+endPoint `coinsets/backtest`
+```typescript
+body: {
+	/** example [`BTC`,`ETH`], minimum two symbols */
+	coinSet: string[],
+}
+
+response: {
+    /** Chart X-axis points count */
+    pointsCount: number;
+    /** Total Historical Value */
+    historyPoints: number[];
+    /** Total Traded Value */
+    gainPoints: number[];
+    /** Total Amounts Start/End */
+    totalChangesObj: TradeStartEndObj;
+    /** Total Amounts End */
+    endQtyRef: NumberObj;
+    /** Total Gain Percentage */
+    gainRate: number;
+    /** Total Gain Value */
+    gainValue: number;
+}
+
+error: { e: 'coinset_backtest_unavailable' }
 ```
