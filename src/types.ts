@@ -283,6 +283,15 @@ interface CoinSetBackTestResult {
     gainValue: number;
 }
 
+interface CoinSetBackTestData {
+    list: string[],
+    backtest: CoinSetBackTestResult | ErrorCodeString
+}
+
+interface CoinSetBackTestObj {
+    [coinSetId: string]: CoinSetBackTestData
+}
+
 export {
     // configuration
     CEConfig,
@@ -323,4 +332,5 @@ export {
     TradeStartEnd,
     TradeStartEndObj,
     CoinSetBackTestResult,
+    CoinSetBackTestObj,
 };

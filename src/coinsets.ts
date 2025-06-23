@@ -14,6 +14,7 @@ import {
     CoinsetId,
     ResultPromise,
     CoinSetBackTestResult,
+    CoinSetBackTestObj,
 } from "./types";
 
 const
@@ -174,6 +175,46 @@ const
             logErr(e, `coinsets/backtest`);
             return eRes();
         };
+    },
+    /**
+     * Coin Sets :
+     * All coin sets created and back-tests
+     * */
+    coinSetsAllBackTest = async (
+        /** exchange Id */
+        exchId: ExchIds
+    ): ResultPromise<CoinSetBackTestObj> => {
+        try {
+            const
+                res = await coinSetsAll(exchId),
+                backTestsObj: CoinSetBackTestObj = {};
+            if (res?.success) {
+                const
+                    allBackTests: ResultPromise<CoinSetBackTestResult>[] = [],
+                    idsArray = Object.keys(res.data);
+                for (let i = 0; i < idsArray.length; i++) {
+                    const
+                        coinSetId = idsArray[i],
+                        list = res.data[exchId][coinSetId];
+                    allBackTests.push(coinSetBackTest(list));
+                };
+                const allBackTestsResults = await Promise.all(allBackTests);
+                for (let i = 0; i < idsArray.length; i++) {
+                    const
+                        coinSetId = idsArray[i],
+                        result = allBackTestsResults[i],
+                        list = res.data[exchId][coinSetId];
+                    backTestsObj[coinSetId] = {
+                        list,
+                        backtest: result?.success ? result?.data : result?.e
+                    };
+                };
+            };
+            return fullRes(res, backTestsObj);
+        } catch (e) {
+            logErr(e, `coinsets all backtest`);
+            return eRes();
+        };
     };
 
 export {
@@ -183,4 +224,5 @@ export {
     coinSetsUpdate,
     coinSetsDelete,
     coinSetBackTest,
+    coinSetsAllBackTest,
 };

@@ -19,9 +19,11 @@ import {
     coinSetsUpdate,
     coinSetsDelete,
     coinSetBackTest,
+    coinSetsAllBackTest,
 } from "./coinsets";
 import {
     APISpecs,
+    CoinSetBackTestObj,
     CoinSetBackTestResult,
     CoinsetDelete,
     CoinsetError,
@@ -101,5 +103,7 @@ export {
     TradeStartEnd,
     TradeStartEndObj,
     CoinSetBackTestResult,
+    CoinSetBackTestObj,
     coinSetBackTest,
+    coinSetsAllBackTest,
 };

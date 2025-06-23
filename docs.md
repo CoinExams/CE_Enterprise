@@ -2,6 +2,7 @@
 ## CoinExams SDK - Raw Setup
 
 ### Change Log
+* [23 June 2025 - coinSetsAllBackTest added](changes.md#23-june-2025)
 * [22 June 2025 - coinSetBackTest added](changes.md#22-june-2025)
 * [5 May 2025 - payPortfolioValid return updated](changes.md#5-may-2025)
 * [25 April 2025 - payPortfolio parameters updated](changes.md#25-april-2025)

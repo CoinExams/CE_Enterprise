@@ -133,3 +133,7 @@ Returns `coinSetId` as confirmation
 Backtest an existing coin set using coin set array `coinSetBackTest(coinSet)`
 Returns `CoinSetBackTestResult` data
 Error return `{e: 'coinset_backtest_unavailable' }`
+
+### Coinset All Backtests
+Backtest an existing coin set using coin set array `coinSetsAllBackTest(exchId)`
+Returns `CoinSetBackTestObj` data

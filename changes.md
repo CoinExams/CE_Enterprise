@@ -1,6 +1,9 @@
 
 ## CoinExams Enterprise - Change Log
 
+### 23 June 2025 
+`coinSetsAllBackTest` added to return all coinsets with backtests
+
 ### 22 June 2025 
 `coinSetBackTest` added to return coinset backtest
 
