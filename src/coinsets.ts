@@ -191,11 +191,12 @@ const
             if (res?.success) {
                 const
                     allBackTests: ResultPromise<CoinSetBackTestResult>[] = [],
-                    idsArray = Object.keys(res.data);
+                    data = res.data[exchId],
+                    idsArray = Object.keys(data);
                 for (let i = 0; i < idsArray.length; i++) {
                     const
                         coinSetId = idsArray[i],
-                        list = res.data[exchId][coinSetId];
+                        list = data[coinSetId];
                     allBackTests.push(coinSetBackTest(list));
                 };
                 const allBackTestsResults = await Promise.all(allBackTests);
@@ -203,7 +204,7 @@ const
                     const
                         coinSetId = idsArray[i],
                         result = allBackTestsResults[i],
-                        list = res.data[exchId][coinSetId];
+                        list = data[coinSetId];
                     backTestsObj[coinSetId] = {
                         list,
                         backtest: result?.success ? result?.data : result?.e
