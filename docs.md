@@ -393,7 +393,7 @@ response: {
 }
 ```
 
-### Coin Set Delete
+### Coin Set BackTest
 Backtest an existing coin set using coin set array
 
 endPoint `coinsets/backtest`
