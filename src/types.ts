@@ -104,7 +104,7 @@ interface ClientPayments {
 }
 
 /** Exchanges Ids */
-type ExchIds = `binance`;
+type ExchIds = `binance` | `kucoin`;
 
 /** Exchange user data */
 interface ExchData {
