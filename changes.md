@@ -1,6 +1,9 @@
 
 ## CoinExams Enterprise - Change Log
 
+### 4 August 2025
+`portfoliosActive` added to `accountInfo` returns active portfolios count
+
 ### 23 June 2025 
 `coinSetsAllBackTest` added to return all coinsets with backtests
 

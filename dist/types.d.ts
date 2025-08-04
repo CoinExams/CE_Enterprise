@@ -70,6 +70,8 @@ interface APIBasics {
     paused?: boolean;
     /** number of portfolios */
     portfolios: number;
+    /** number of active portfolios */
+    portfoliosActive: number;
 }
 /** API info */
 interface APIInfo extends APIBasics {
