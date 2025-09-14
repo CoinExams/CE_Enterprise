@@ -1,8 +1,10 @@
 # CoinExams Enterprise
-CoinExams Enterprise APIs uses HMAC authentication to protect the data in transit. Thus, it is required to include the API key in request body and sign all requests with HMAC key. All requests are using POST method for ease, reliability, and security.
+CoinExams Enterprise APIs enable secure management of cryptocurrency portfolios and coin sets via HMAC-authenticated POST requests, with SDKs for Node.js and browser use. Key features include portfolio creation, updates, deletion, exchange API management, payment processing on blockchain (e.g., BSC), and coin set operations with backtesting.
 
+## Docs
 [SDK - Raw Setup](docs.md)
 
+## Change Log
 [Change Log](changes.md)
 
 ## Installation
@@ -10,7 +12,7 @@ Install using `yarn add coinexams` or `npm install coinexams`
 
 OR use in browsers through CDN
 
-`<script src="https://cdn.jsdelivr.net/npm/coinexams@1.2.7/dist/browser/coinexams.min.js"></script>`
+`<script src="https://cdn.jsdelivr.net/npm/coinexams@1.2.8/dist/browser/coinexams.min.js"></script>`
 
 ## CoinExams API keys
 Start by add api keys using `config({ apiKey, hmacKey })`
@@ -57,9 +59,9 @@ Returns `portId` as confirmation
 Get payment transactions
 ```typescript
 config({
-    payId, // Your Pay Id number as string
-    payChain, // Your Pay Chain, e.g. `BSC`
-    payRPC, // Your preferred RPC for your pay chain
+    payId: `12345678`, // Your Pay Id number as string
+    payChain: ChainIdsEnum.BSC, // Your Pay Chain, e.g. `BSC`
+    payRPC: `https://....`, // Your preferred RPC for your pay chain
 });
 
 const 

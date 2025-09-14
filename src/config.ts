@@ -34,17 +34,7 @@ const
         if (payId) configuration.payId = payId;
         if (payChain) {
             configuration.payChain = payChain;
-            if (payRPC) merchantConfig({
-                ...payChain == `APT` ? { APT_RPC: payRPC } : {},
-                ...payChain == `ARBITRUM` ? { ARBITRUM_RPC: payRPC } : {},
-                ...payChain == `AVALANCHE` ? { AVALANCHE_RPC: payRPC } : {},
-                ...payChain == `BSC` ? { BSC_RPC: payRPC } : {},
-                ...payChain == `CELO` ? { CELO_RPC: payRPC } : {},
-                ...payChain == `ETH` ? { ETH_RPC: payRPC } : {},
-                ...payChain == `FANTOM` ? { FANTOM_RPC: payRPC } : {},
-                ...payChain == `OPTIMISM` ? { OPTIMISM_RPC: payRPC } : {},
-                ...payChain == `POLYGON` ? { POLYGON_RPC: payRPC } : {},
-            });
+            if (payRPC) merchantConfig({ [`${payChain}_RPC`]: payRPC });
         };
         if (consoleLogEnabled != undefined) {
             configuration.consoleLogEnabled = consoleLogEnabled;
@@ -61,7 +51,7 @@ const
                 const p = params[i];
                 if (!p || typeof p != `string`)
                     return true
-            }
+            };
             return false
         } catch {
             return true

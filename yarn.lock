@@ -1950,10 +1950,10 @@ memfs@^4.6.0:
     tree-dump "^1.0.1"
     tslib "^2.0.0"
 
-merchantslate@^0.6.3:
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/merchantslate/-/merchantslate-0.6.3.tgz#61fbd6f9cd7378d2f3d302947904ced525e0a0eb"
-  integrity sha512-jz8yBuVe7R6+Al0eCxeFZjqenIRM358fcU7KL8upXbb8SYZOyRpuZwehUt6G802dWLH9oq7qnXKiVg4ENtQGgA==
+merchantslate@^0.6.9:
+  version "0.6.9"
+  resolved "https://registry.yarnpkg.com/merchantslate/-/merchantslate-0.6.9.tgz#816159c76f8a601cc8bd0d9a8a5f0bad952283c9"
+  integrity sha512-l8TuPwWG0+GvCNGoc4CdrtPHyW55mNwNsAaH39GenCdQyTvQFZCRbtVojwyOFIAPQmulkC75DM6AHSG4TEP3Mg==
   dependencies:
     ethers "^6.13.4"
     node-fetch "^3.3.2"

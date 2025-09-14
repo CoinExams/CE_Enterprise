@@ -1,6 +1,9 @@
 
 ## CoinExams Enterprise - Change Log
 
+### 14 September 2025
+`ChainIds` and `ChainIdsEnum` exported
+
 ### 4 August 2025
 `portfoliosActive` added to `accountInfo` returns active portfolios count
 

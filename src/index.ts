@@ -44,7 +44,7 @@ import {
     TradeStartEnd,
     TradeStartEndObj,
 } from "./types";
-import { EVMAddress, PayTxsData } from "merchantslate";
+import { ChainIds, ChainIdsEnum, EVMAddress, PayTxsData } from "merchantslate";
 import {
     payPortfolio,
     payPortfolioValid,
@@ -56,6 +56,8 @@ export {
     // configuration
     config,
     getConfig,
+    ChainIds,
+    ChainIdsEnum,
     ConfigSDK,
     accountInfo,
     accountPayments,
