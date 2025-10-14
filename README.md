@@ -59,9 +59,15 @@ Returns `portId` as confirmation
 Get payment transactions
 ```typescript
 config({
-    payId: `12345678`, // Your Pay Id number as string
-    payChain: ChainIdsEnum.BSC, // Your Pay Chain, e.g. `BSC`
-    payRPC: `https://....`, // Your preferred RPC for your pay chain
+    // Your Pay Id number as string
+    payId: `12345678`,
+    
+    // Your Pay Chain, e.g. `BSC`
+    payChain: ChainIdsEnum.BSC, 
+    
+    // Your preferred RPC for your pay chain ex. `https://....`
+    // multiple RPC urls can be added in an array for fallbacks
+    payRPC: string | string[],
 });
 
 const 

@@ -1,6 +1,9 @@
 
 ## CoinExams Enterprise - Change Log
 
+### 14 October 2025
+`payRPC` in `config` accepts array of RPCs to be used in same order (if any fails)
+
 ### 14 September 2025
 `ChainIds` and `ChainIdsEnum` exported
 

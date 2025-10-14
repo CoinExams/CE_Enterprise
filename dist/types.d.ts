@@ -4,7 +4,7 @@ interface CEConfig extends MerchantConfigParams {
     hmacKey?: string;
     payId?: string;
     payChain?: ChainIds;
-    payRPC?: string;
+    payRPC?: string | string[];
     consoleLogEnabled?: boolean;
 }
 interface ErrorCodes {
