@@ -2,6 +2,7 @@
 ## CoinExams SDK - Raw Setup
 
 ### Change Log
+* [24 July 2026 - portfolioTradesPrices added](changes.md#24-july-2026)
 * [23 June 2025 - coinSetsAllBackTest added](changes.md#23-june-2025)
 * [22 June 2025 - coinSetBackTest added](changes.md#22-june-2025)
 * [5 May 2025 - payPortfolioValid return updated](changes.md#5-may-2025)
@@ -422,3 +423,50 @@ response: {
 
 error: { e: 'coinset_backtest_unavailable' }
 ```
+
+### Coins Price
+Latest server coin and rate data
+
+endPoint `data`
+```typescript
+fetch `https://srv.coinexams.com/data.json`
+
+response: ServerResponseData {
+    /** Response timestamp */
+    date: number;
+    /** Fiat exchange rates */
+    rates: {
+        /** Rates timestamp */
+        date: number;
+        /** Current fiat rates (ISO code to rate) */
+        current: NumberObj;
+        /** Yesterday fiat rates */
+        yesterday: NumberObj;
+    };
+    /** Market indexes */
+    ind: { ... };
+    /** Crypto coin prices */
+    coins: {
+        [symbol: string]: {
+            /** Current Price (in base currency = EUR) */
+            pr: number;
+            /** Price 24Hr */
+            yst: number;
+            /** All time high price */
+            ath: number;
+            /** Circulating supply */
+            sply?: number;
+            /** Score array */
+            sc: number[];
+            /** Factor */
+            f: number;
+            /** Value */
+            v: number;
+            /** Buy on CoinDisco */
+            disco?: string;
+        }
+    }
+}
+```
+
+

@@ -20,6 +20,8 @@ const
         port_delete_failed: `Portfolio delete failed. Please try again.`,
         last_port_error: `Account needs at least one portfolio`,
         coinset_backtest_unavailable: `Coinset backtest not available`,
+        currency_not_supported: `Currency not supported`,
+        prices_unavailable: `Prices not available from server`,
     },
     eRes = (e?: ErrorCodeString): ErrorResponse => {
         e = e || `unknown`;

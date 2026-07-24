@@ -6,6 +6,7 @@ import {
 } from "./config";
 import {
     portfolioTrades,
+    portfolioTradesPrices,
     portfolioNew,
     portfolioUpdate,
     portfolioExchAPI,
@@ -34,6 +35,7 @@ import {
     ConfigSDK,
     ExchData,
     ExchDataAll,
+    ExchDataAllPrices,
     ExchIds,
     ExchangeHoldings,
     PortSettings,
@@ -43,6 +45,8 @@ import {
     PortfolioUpdate,
     TradeStartEnd,
     TradeStartEndObj,
+    ServerResponseData,
+    ServerCoinData,
 } from "./types";
 import { ChainIds, ChainIdsEnum, EVMAddress, PayTxsData } from "merchantslate";
 import {
@@ -66,8 +70,10 @@ export {
 
     // portfolios
     portfolioTrades,
+    portfolioTradesPrices,
     ExchData,
     ExchDataAll,
+    ExchDataAllPrices,
     portfolioNew,
     portfolioUpdate,
     PortfolioUpdate,
@@ -108,4 +114,8 @@ export {
     CoinSetBackTestObj,
     coinSetBackTest,
     coinSetsAllBackTest,
+
+    // coin prices
+    ServerResponseData,
+    ServerCoinData,
 };

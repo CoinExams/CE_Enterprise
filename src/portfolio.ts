@@ -2,18 +2,22 @@ import {
     invalidStr,
     logErr,
     requestFun,
+    fileData,
 } from "./config";
 import { eRes, fullRes } from "./response";
 import {
+    NumberObj,
     PortfolioExchAPI,
     PortSettings,
     ExchDataAll,
+    ExchDataAllPrices,
     PortSettingsAll,
     PortSettingsAllString,
     PortfolioUpdate,
     PortfolioExchAPIReturn,
     PortfolioId,
     ResultPromise,
+    ServerResponseData,
 } from "./types";
 
 const
@@ -69,6 +73,52 @@ const
                     : { portId }
             );
             return fullRes(res, res?.exchanges)
+        } catch (e) {
+            logErr(e, endPoint);
+            return eRes();
+        };
+    },
+
+    /**
+     * Portfolio Trades Prices :
+     * Latest trades for all portfolios with all coin prices
+     * or pass a single portfolio portfolio Id portId for specific data
+     * @returns empty object when no trades
+     * */
+    portfolioTradesPrices = async ({
+        portId,
+        currencyISO,
+    }: {
+        portId?: string,
+        currencyISO: string,
+    }): ResultPromise<ExchDataAllPrices> => {
+        const endPoint = `data`;
+        try {
+            const
+                tradesRes = await portfolioTrades(portId),
+                srvData: ServerResponseData = await fileData({
+                    folderPath: ``,
+                    fileName: `data`,
+                });
+
+            if (!tradesRes?.success) return eRes(tradesRes?.e);
+            if (!srvData?.coins) return eRes(`prices_unavailable`);
+
+            const
+                prices: NumberObj = {},
+                currencyRate = srvData?.rates?.current?.[currencyISO];
+            if (!currencyRate) return eRes(`currency_not_supported`);
+
+            for (const sy in srvData.coins)
+                prices[sy] = srvData.coins[sy].pr * currencyRate;
+
+            return {
+                success: true,
+                data: {
+                    data: tradesRes.data,
+                    prices,
+                },
+            };
         } catch (e) {
             logErr(e, endPoint);
             return eRes();
@@ -202,6 +252,7 @@ const
 export {
     portfolioData,
     portfolioTrades,
+    portfolioTradesPrices,
     portfolioNew,
     portfolioUpdate,
     portfolioExchAPI,

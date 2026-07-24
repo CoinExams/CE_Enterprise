@@ -15,11 +15,11 @@ OR use in browsers through CDN
 `<script src="https://cdn.jsdelivr.net/npm/coinexams@1.2.8/dist/browser/coinexams.min.js"></script>`
 
 ## CoinExams API keys
-Start by add api keys using `config({ apiKey, hmacKey })`
+Start by adding API keys using `config({ apiKey, hmacKey })`
 Validate current configuration using `getConfig()`
 
 ## Debug
-In order to disable console log messages you can update config as follows
+Disable console log messages:
 `config({ consoleLogEnabled: false })`
 
 ## Portfolios
@@ -34,6 +34,13 @@ Optional `portId` can be omitted to get all portfolios
 Error return `{ e: 'no_trades' | 'access_expired' }`
 For `access_expired` please contact support to renew API access
 
+### Portfolio Trades Prices
+Latest trades for all portfolios with coin prices converted to a given fiat currency `portfolioTradesPrices({ portId, currencyISO })`
+Optional `portId` can be omitted to get all portfolios
+
+Error return `{ e: 'prices_unavailable' | 'currency_not_supported' | 'no_trades' | 'access_expired' }`
+Use `EUR` for the base (default) currency
+
 ### Portfolio New
 Create a new portfolio and get portfolio ID `portfolioNew(portSettings)`
 Optional `portSettings` can be omitted to use default settings
@@ -45,11 +52,11 @@ Returns `portId` as confirmation
 
 ### Portfolio Exchange APIs
 Add or update exchange API keys for a given exchange
-`portfolioExchAPI = async ({ portId, exchId, key1, key2 })`
-Returns `ExchangeHoldings` as `holdings` 
+`portfolioExchAPI({ portId, exchId, key1, key2 })`
+Returns `ExchangeHoldings` as `holdings`
 
 Error return `{ e: 'api_renew' | 'api_invalid' }`
-For `api_renew` user has to check exchange for expired API access
+For `api_renew` check exchange for expired API access
 
 ### Portfolio Delete
 Delete an existing portfolio using portfolio ID `portfolioDelete(portId)`

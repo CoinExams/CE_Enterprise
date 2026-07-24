@@ -27,7 +27,9 @@ interface ErrorCodes {
     max_port_reached: string,
     port_delete_failed: string,
     last_port_error: string,
-    coinset_backtest_unavailable: string
+    coinset_backtest_unavailable: string,
+    currency_not_supported: string,
+    prices_unavailable: string
 };
 
 type ErrorCodeString = keyof ErrorCodes;
@@ -110,6 +112,7 @@ type ExchIds = `binance` | `kucoin`;
 
 /** Exchange user data */
 interface ExchData {
+
     /** holdings on exchange */
     holdings: {
         [exchId: string]: `api_renew` | `api_invalid` | {
@@ -136,6 +139,14 @@ interface ExchData {
 /** Exchange data all users */
 interface ExchDataAll {
     [portId: string]: ExchData
+}
+
+/** Exchange data all users (with prices) */
+interface ExchDataAllPrices {
+    /** Exchange data all users */
+    data: ExchDataAll;
+    /** symbol prices */
+    prices: NumberObj;
 }
 
 /** Exchange Holdings */
@@ -294,7 +305,87 @@ interface CoinSetBackTestObj {
     [coinSetId: string]: CoinSetBackTestData
 }
 
+/** Server coin data from API */
+interface ServerCoinData {
+    /** Current Price (in base currency = EUR) */
+    pr: number;
+    /** Current Price (reference) */
+    ref: number;
+    /** Price 24Hr */
+    yst: number;
+    /** Price 24hr (reference) */
+    ref24: number;
+    /** All time high price */
+    ath: number;
+    /** Circulating supply */
+    sply?: number;
+    /** Score array */
+    sc: number[];
+    /** Factor */
+    f: number;
+    /** Value */
+    v: number;
+    /** Error */
+    e?: number;
+    /** Buy on CoinDisco */
+    disco?: string;
+}
+
+/** Server coin data mapped by symbol */
+interface ServerCoinDataMap {
+    [symbol: string]: ServerCoinData
+}
+
+/** Server API response data */
+interface ServerResponseData {
+    /** Response timestamp */
+    date: number;
+    /** Fiat exchange rates */
+    rates: {
+        /** Rates timestamp */
+        date: number;
+        /** Current fiat rates */
+        current: NumberObj;
+        /** Yesterday fiat rates */
+        yesterday: NumberObj;
+    };
+    /** Market indexes */
+    ind: {
+        /** Listed indexes */
+        lst: {
+            /** Volume symbols */
+            vol: string[];
+            /** Top symbols */
+            top: string[];
+            /** Cap symbols */
+            cap: string[];
+        };
+        /** Cutoff indexes */
+        cut: {
+            /** Volume symbols */
+            vol: string[];
+            /** Top symbols */
+            top: string[];
+            /** Cap symbols */
+            cap: string[];
+        };
+        /** Index score weight */
+        sc: {
+            /** Volume weight */
+            vol: NumberObj;
+            /** Top weight */
+            top: NumberObj;
+            /** Cap weight */
+            cap: NumberObj;
+        }
+    };
+    /** Crypto coin prices */
+    coins: ServerCoinDataMap
+}
+
 export {
+    NumberObj,
+
     // configuration
     CEConfig,
     ErrorCodes,
@@ -310,6 +401,7 @@ export {
     ExchIds,
     ExchData,
     ExchDataAll,
+    ExchDataAllPrices,
     ExchangeHoldings,
 
     // portfolios
@@ -335,4 +427,9 @@ export {
     TradeStartEndObj,
     CoinSetBackTestResult,
     CoinSetBackTestObj,
+
+    // coin prices
+    ServerCoinData,
+    ServerCoinDataMap,
+    ServerResponseData,
 };

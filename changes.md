@@ -1,6 +1,13 @@
 
 ## CoinExams Enterprise - Change Log
 
+### 24 July 2026
+`portfolioTradesPrices` added to return trades with coin prices and rates
+
+ * `currency_not_supported` error code added when currency ISO is invalid or unavailable
+ * `prices_unavailable` error code added when coin prices data is not available from server
+* `ServerResponseData`, `ServerCoinData`, `ExchDataAllPrices` types exported
+
 ### 14 October 2025
 `payRPC` in `config` accepts array of RPCs to be used in same order (if any fails)
 
