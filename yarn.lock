@@ -14,6 +14,11 @@
   dependencies:
     "@jridgewell/trace-mapping" "0.3.9"
 
+"@degreesign/utils@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@degreesign/utils/-/utils-1.0.2.tgz#0f97fedd54aaf052f668f4aa0b32eaee25de5cd8"
+  integrity sha512-pevKUFTDPes9L/GKfQxtyP9YGCoqrPZ0deBiprpH0hFwUmJsi1+G+y08HRaOb0IQ8hagyxQt8rObx/H4q48zMQ==
+
 "@discoveryjs/json-ext@^0.6.1":
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.6.3.tgz#f13c7c205915eb91ae54c557f5e92bddd8be0e83"

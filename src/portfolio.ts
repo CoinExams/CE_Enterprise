@@ -1,3 +1,4 @@
+import { rNum } from "@degreesign/utils";
 import {
     invalidStr,
     logErr,
@@ -111,7 +112,7 @@ const
             if (!currencyRate) return eRes(`currency_not_supported`);
 
             for (const sy in srvData.coins)
-                prices[sy] = srvData.coins[sy].pr * currencyRate;
+                prices[sy] = rNum(srvData.coins[sy].pr * currencyRate, 6);
 
             return {
                 success: true,
