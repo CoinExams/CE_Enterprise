@@ -115,13 +115,16 @@ const
     fileData = async ({
         folderPath,
         fileName,
+        msInterval = 1,
     }: {
         folderPath: string,
         fileName: string,
+        msInterval?: number;
     }) => {
         try {
             const
-                res = await fetch(`${dataURL}${folderPath}/${fileName}.json`),
+                v = Math.round(Date.now() / msInterval),
+                res = await fetch(`${dataURL}${folderPath}/${fileName}.json?v=${v}`),
                 result = await res?.json();
             return result;
         } catch (e) {

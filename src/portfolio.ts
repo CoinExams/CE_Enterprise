@@ -99,6 +99,7 @@ const
                 srvData: ServerResponseData = await fileData({
                     folderPath: ``,
                     fileName: `data`,
+                    msInterval: 2e3,
                 });
 
             if (!tradesRes?.success) return eRes(tradesRes?.e);

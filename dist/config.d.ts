@@ -11,9 +11,10 @@ logErr: (e: any, endPoint?: string) => void,
 /** Main Request Function */
 requestFun: (endPoint: string, reqParm?: any) => Promise<any>, 
 /** Data Request Function */
-fileData: ({ folderPath, fileName, }: {
+fileData: ({ folderPath, fileName, msInterval, }: {
     folderPath: string;
     fileName: string;
+    msInterval?: number;
 }) => Promise<any>, 
 /** API data */
 accountInfo: () => ResultPromise<APISpecs>, 
