@@ -8,11 +8,11 @@ CoinExams Enterprise APIs enable secure management of cryptocurrency portfolios 
 [Change Log](changes.md)
 
 ## Installation
-Install using `yarn add coinexams` or `npm install coinexams` 
+Install using `yarn add @coinexams/enterprise` or `npm install @coinexams/enterprise` 
 
 OR use in browsers through CDN
 
-`<script src="https://cdn.jsdelivr.net/npm/coinexams@1.2.8/dist/browser/coinexams.min.js"></script>`
+`<script src="https://cdn.jsdelivr.net/npm/@coinexams/enterprise@1.3.4/dist/browser/coinexams.min.js"></script>`
 
 ## CoinExams API keys
 Start by adding API keys using `config({ apiKey, hmacKey })`
