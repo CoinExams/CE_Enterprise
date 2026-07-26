@@ -1,6 +1,8 @@
 # CoinExams Enterprise
 CoinExams Enterprise APIs enable secure management of cryptocurrency portfolios and coin sets via HMAC-authenticated POST requests, with SDKs for Node.js and browser use. Key features include portfolio creation, updates, deletion, exchange API management, payment processing on blockchain (e.g., BSC), and coin set operations with backtesting.
 
+**Note:** This package is a continuation of the now deprecated [`coinexams`](https://www.npmjs.com/package/coinexams)
+
 ## Docs
 [SDK - Raw Setup](docs.md)
 
