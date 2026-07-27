@@ -108,7 +108,8 @@ interface ClientPayments {
 }
 
 /** Exchanges Ids */
-type ExchIds = `binance` | `kucoin`;
+const ExchSupported = [`binance`, `kucoin`] as const;
+type ExchIds = typeof ExchSupported[number];
 
 /** Exchange user data */
 interface ExchData {
@@ -200,6 +201,20 @@ interface PortSettingsAll {
 /** Portfolio Settings All Stringified */
 interface PortSettingsAllString {
     [portId: string]: string
+}
+
+/** Portfolio Trading Totals */
+interface PortfolioCoinSetTrading {
+    totalTrading: number,
+    totalAvailable: number,
+    totalChange7Days: number,
+    totalChange30Days: number,
+    totalChange1Year: number,
+}
+
+/** Portfolio Trading Totals Data */
+interface PortfolioCoinSetTradingData {
+    [portId: string]: PortfolioCoinSetTrading
 }
 
 /** Portfolio Exchange API */
@@ -398,6 +413,7 @@ export {
     ClientPayments,
 
     // exchanges
+    ExchSupported,
     ExchIds,
     ExchData,
     ExchDataAll,
@@ -410,6 +426,8 @@ export {
     PortfolioUpdate,
     PortSettingsAll,
     PortSettingsAllString,
+    PortfolioCoinSetTrading,
+    PortfolioCoinSetTradingData,
     PortfolioExchAPI,
     PortfolioExchAPIReturn,
 

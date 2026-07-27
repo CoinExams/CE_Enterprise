@@ -98,7 +98,8 @@ interface ClientPayments {
     time: number;
 }
 /** Exchanges Ids */
-type ExchIds = `binance` | `kucoin`;
+declare const ExchSupported: readonly ["binance", "kucoin"];
+type ExchIds = typeof ExchSupported[number];
 /** Exchange user data */
 interface ExchData {
     /** holdings on exchange */
@@ -177,6 +178,18 @@ interface PortSettingsAll {
 /** Portfolio Settings All Stringified */
 interface PortSettingsAllString {
     [portId: string]: string;
+}
+/** Portfolio Trading Totals */
+interface PortfolioCoinSetTrading {
+    totalTrading: number;
+    totalAvailable: number;
+    totalChange7Days: number;
+    totalChange30Days: number;
+    totalChange1Year: number;
+}
+/** Portfolio Trading Totals Data */
+interface PortfolioCoinSetTradingData {
+    [portId: string]: PortfolioCoinSetTrading;
 }
 /** Portfolio Exchange API */
 interface PortfolioExchAPI {
@@ -341,4 +354,4 @@ interface ServerResponseData {
     /** Crypto coin prices */
     coins: ServerCoinDataMap;
 }
-export { NumberObj, CEConfig, ErrorCodes, ErrorCodeString, ErrorResponse, SuccessResponse, ResultPromise, ConfigSDK, APISpecs, ClientPayments, ExchIds, ExchData, ExchDataAll, ExchDataAllPrices, ExchangeHoldings, PortSettings, PortfolioId, PortfolioUpdate, PortSettingsAll, PortSettingsAllString, PortfolioExchAPI, PortfolioExchAPIReturn, CoinsetNew, CoinsetDelete, CoinsetUpdate, CoinsetObj, CoinsetsData, CoinsetId, CoinsetError, TradeStartEnd, TradeStartEndObj, CoinSetBackTestResult, CoinSetBackTestObj, ServerCoinData, ServerCoinDataMap, ServerResponseData, };
+export { NumberObj, CEConfig, ErrorCodes, ErrorCodeString, ErrorResponse, SuccessResponse, ResultPromise, ConfigSDK, APISpecs, ClientPayments, ExchSupported, ExchIds, ExchData, ExchDataAll, ExchDataAllPrices, ExchangeHoldings, PortSettings, PortfolioId, PortfolioUpdate, PortSettingsAll, PortSettingsAllString, PortfolioCoinSetTrading, PortfolioCoinSetTradingData, PortfolioExchAPI, PortfolioExchAPIReturn, CoinsetNew, CoinsetDelete, CoinsetUpdate, CoinsetObj, CoinsetsData, CoinsetId, CoinsetError, TradeStartEnd, TradeStartEndObj, CoinSetBackTestResult, CoinSetBackTestObj, ServerCoinData, ServerCoinDataMap, ServerResponseData, };

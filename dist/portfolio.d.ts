@@ -1,4 +1,4 @@
-import { PortfolioExchAPI, PortSettings, ExchDataAll, ExchDataAllPrices, PortSettingsAll, PortfolioUpdate, PortfolioExchAPIReturn, ResultPromise } from "./types";
+import { PortfolioExchAPI, PortSettings, ExchDataAll, ExchDataAllPrices, PortSettingsAll, PortfolioUpdate, PortfolioExchAPIReturn, ResultPromise, PortfolioCoinSetTradingData } from "./types";
 declare const 
 /**
  * Portfolios Settings :
@@ -25,6 +25,15 @@ portfolioTradesPrices: ({ portId, currencyISO, }: {
     currencyISO: string;
 }) => ResultPromise<ExchDataAllPrices>, 
 /**
+ * Portfolio Trading Totals :
+ * Trading totals per portfolio based on coinSet used
+ * @returns object portId keyed with totals
+ * */
+portfolioTradingTotals: ({ portId, currencyISO, }: {
+    portId?: string;
+    currencyISO: string;
+}) => ResultPromise<PortfolioCoinSetTradingData>, 
+/**
  * Portfolio New :
  * Create a new portfolio and get portfolio ID
  * @returns new portfolio id string
@@ -48,4 +57,4 @@ portfolioExchAPI: ({ portId, exchId, key1, key2, }: PortfolioExchAPI) => ResultP
  * @returns portfolio id string
  * */
 portfolioDelete: (portId: string) => ResultPromise<string>;
-export { portfolioData, portfolioTrades, portfolioTradesPrices, portfolioNew, portfolioUpdate, portfolioExchAPI, portfolioDelete, };
+export { portfolioData, portfolioTrades, portfolioTradesPrices, portfolioTradingTotals, portfolioNew, portfolioUpdate, portfolioExchAPI, portfolioDelete, };
