@@ -1,6 +1,6 @@
 {
   "name": "@coinexams/enterprise",
-  "version": "1.3.6",
+  "version": "1.3.7",
   "description": "CoinExams Enterprise API SDK gives you access to the Crypto Portfolio Builder and other CoinExams services. Seamless integration with minimal implementation effort.",
   "main": "dist/node/coinexams.node.min.js",
   "module": "dist/node/coinexams.node.min.js",
