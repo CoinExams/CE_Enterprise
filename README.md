@@ -88,7 +88,7 @@ The package bundles its runtime dependencies, so no additional polyfills or peer
 Load the UMD build directly and use the global `coinexams` object:
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/@coinexams/enterprise@1.3.8/dist/browser/coinexams.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@coinexams/enterprise@1.3.9/dist/browser/coinexams.min.js"></script>
 <script>
     const { config, portfolioData } = coinexams;
 </script>

@@ -18,7 +18,6 @@ const baseURL = `https://api.coinexams.com/v1/`;
 ### Request Signed
 ```typescript
 import { createHmac } from "node:crypto";
-import fetch from "node-fetch";
 
 const
     baseURL: string = `https://api.coinexams.com/v1/`,

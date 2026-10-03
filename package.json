@@ -1,11 +1,14 @@
 {
   "name": "@coinexams/enterprise",
-  "version": "1.3.8",
+  "version": "1.3.9",
   "description": "TypeScript SDK for building and automating cryptocurrency portfolios: manage portfolios, connect Binance and KuCoin exchange APIs, backtest coin sets, and process on-chain subscription payments from Node.js and the browser.",
   "main": "dist/node/coinexams.node.min.js",
   "module": "dist/node/coinexams.node.min.js",
   "browser": "dist/browser/coinexams.min.js",
   "types": "dist/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build": "webpack"
   },
@@ -45,15 +48,12 @@
   "homepage": "https://github.com/CoinExams/CE_Enterprise#readme",
   "devDependencies": {
     "@types/node": "^22.10.2",
-    "clean-webpack-plugin": "^4.0.0",
-    "esbuild": "^0.24.2",
     "terser-webpack-plugin": "^5.3.11",
     "ts-loader": "^9.5.1",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2",
     "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.0"
+    "webpack-cli": "^6.0.1"
   },
   "files": [
     "dist/"
@@ -63,7 +63,6 @@
     "@merchantslate/legacy": "^1.3.0",
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.1",
-    "node-fetch": "^3.3.2",
     "stream-browserify": "^3.0.0",
     "vm-browserify": "^1.1.2"
   }

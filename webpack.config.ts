@@ -9,7 +9,6 @@ const
         resolve: {
             extensions: [`.ts`, `.js`], // Resolve .ts and .js files
             fallback: {
-                fetch: require.resolve(`node-fetch`),
                 crypto: require.resolve(`crypto-browserify`),
                 stream: require.resolve(`stream-browserify`),
                 vm: require.resolve(`vm-browserify`),
