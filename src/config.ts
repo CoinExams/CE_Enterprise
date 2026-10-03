@@ -3,7 +3,7 @@ import { APISpecs, CEConfig, ClientPayments, ConfigSDK, ResultPromise } from './
 import {
     getConfig as getMerchantConfig,
     config as merchantConfig,
-} from 'merchantslate';
+} from '@merchantslate/legacy';
 import { fullRes } from './response';
 
 const

@@ -52,7 +52,7 @@ import {
     ServerResponseData,
     ServerCoinData,
 } from "./types";
-import { ChainIds, ChainIdsEnum, EVMAddress, PayTxsData } from "merchantslate";
+import { ChainIds, ChainIdsEnum, EVMAddress, PayTxsData } from "@merchantslate/legacy";
 import {
     payPortfolio,
     payPortfolioValid,

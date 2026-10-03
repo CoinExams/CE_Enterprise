@@ -222,6 +222,13 @@
   resolved "https://registry.yarnpkg.com/@leichtgewicht/ip-codec/-/ip-codec-2.0.5.tgz#4fc56c15c580b9adb7dc3c333a134e540b44bfb1"
   integrity sha512-Vo+PSpZG2/fmgmiNzYK9qWRh8h/CHrwD0mo1h1DzL4yzHNSfWYujGTYsWGreD000gcgmZ7K4Ys6Tx9TxtsKdDw==
 
+"@merchantslate/legacy@^1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@merchantslate/legacy/-/legacy-1.3.0.tgz#6ceb84272efebb2fcb375185a6be9805564d7dab"
+  integrity sha512-d4onM8z9t968guo7nkWaV0QE8uiQgfGpol0/JGl7jeXFwoZYw5E0ekn+ineaP87Z/xJwbbutL6CMvSLkYLgX5g==
+  dependencies:
+    ethers "^6.13.4"
+
 "@noble/curves@1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@noble/curves/-/curves-1.2.0.tgz#92d7e12e4e49b23105a2555c6984d41733d65c35"
@@ -1954,14 +1961,6 @@ memfs@^4.6.0:
     "@jsonjoy.com/util" "^1.3.0"
     tree-dump "^1.0.1"
     tslib "^2.0.0"
-
-merchantslate@^0.7.6:
-  version "0.7.6"
-  resolved "https://registry.yarnpkg.com/merchantslate/-/merchantslate-0.7.6.tgz#331739997e95834342a9367a678f2e07b130e7ec"
-  integrity sha512-kds+KT11Qu5LSNrjQXVgTY3PcxMtfo2r4x38crPnfnlNmWEYLfj6uGbEG+OkTc1uxNQ84JbjyYC5fNiaXBMOrA==
-  dependencies:
-    ethers "^6.13.4"
-    node-fetch "^3.3.2"
 
 merge-descriptors@1.0.3:
   version "1.0.3"

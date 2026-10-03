@@ -1,4 +1,4 @@
-import { EVMAddress, payValidation, payTxs, PayTxsData, Payment } from "merchantslate";
+import { EVMAddress, payValidation, payTxs, PayTxsData, Payment } from "@merchantslate/legacy";
 import { getConfig, invalidStr, logErr, requestFun } from "./config";
 import { ResultPromise } from "./types";
 import { eRes, fullRes } from "./response";

@@ -1,4 +1,4 @@
-import { ChainIds, MerchantConfigParams } from "merchantslate";
+import { ChainIds, MerchantConfigParams } from "@merchantslate/legacy";
 
 interface CEConfig extends MerchantConfigParams {
     apiKey?: string,

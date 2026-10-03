@@ -2,14 +2,14 @@
 ## CoinExams SDK - Raw Setup
 
 ### Change Log
-* [24 July 2026 - portfolioTradesPrices added](changes.md#24-july-2026)
-* [23 June 2025 - coinSetsAllBackTest added](changes.md#23-june-2025)
-* [22 June 2025 - coinSetBackTest added](changes.md#22-june-2025)
-* [5 May 2025 - payPortfolioValid return updated](changes.md#5-may-2025)
-* [25 April 2025 - payPortfolio parameters updated](changes.md#25-april-2025)
-* [21 April 2025 - portSettings interface updated](changes.md#21-april-2025)
-* [15 April 2025 - ExchData interface updated](changes.md#15-april-2025)
-* [5 April 2025 - ExchIds type updated](changes.md#5-april-2025)
+* [24 July 2026 - portfolioTradesPrices added](changes.md#v131)
+* [23 June 2025 - coinSetsAllBackTest added](changes.md#v122)
+* [22 June 2025 - coinSetBackTest added](changes.md#v120)
+* [5 May 2025 - payPortfolioValid return updated](changes.md#v118)
+* [25 April 2025 - payPortfolio parameters updated](changes.md#v117)
+* [21 April 2025 - portSettings interface updated](changes.md#v116)
+* [15 April 2025 - ExchData interface updated](changes.md#v114)
+* [5 April 2025 - ExchIds type updated](changes.md#v108)
 
 ### Base URL
 ```typescript

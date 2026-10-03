@@ -1,4 +1,4 @@
-import { EVMAddress, PayTxsData, Payment } from "merchantslate";
+import { EVMAddress, PayTxsData, Payment } from "@merchantslate/legacy";
 import { ResultPromise } from "./types";
 declare const 
 /** Payment for Portfolio */
